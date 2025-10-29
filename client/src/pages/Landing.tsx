@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, Users, FileText, Shield } from "lucide-react";
+import { API_BASE_URL } from "../config"; // <-- ADD THIS LINE
+// The path "../config" assumes config.ts is one directory up from pages/
 
 export default function Landing() {
   return (
@@ -18,9 +20,11 @@ export default function Landing() {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed">
               Connect with top employers, discover exciting opportunities, and take the next step in your career journey.
             </p>
+
+            // Get Started Button
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" asChild data-testid="button-login">
-                <a href="/api/login">Get Started</a>
+                <a href={`${API_BASE_URL}/api/login`}>Get Started</a>
               </Button>
             </div>
           </div>
@@ -86,7 +90,7 @@ export default function Landing() {
             Join thousands of job seekers and recruiters finding success on our platform
           </p>
           <Button size="lg" asChild data-testid="button-cta-login">
-            <a href="/api/login">Sign In Now</a>
+            <a href={`${API_BASE_URL}/api/login`}>Sign In Now</a>
           </Button>
         </div>
       </section>
