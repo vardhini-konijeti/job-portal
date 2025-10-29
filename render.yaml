@@ -1,0 +1,15 @@
+# render.yaml
+
+# Configuration for your Static Site deployment
+static_sites:
+  - name: job-portal-ui # Use the exact name you gave your Static Site on Render
+    # This section applies to all paths (/*)
+    headers:
+      - path: "/*" 
+        headers: 
+          - key: X-XSS-Protection
+            value: 1; mode=block
+    # This is the crucial section for fixing the 404/routing issue
+    rewrites:
+      - source: /.*
+        destination: /index.html
